@@ -1,1 +1,1 @@
-pip install numpy scipy cython
+pip install numpy scipy cython matplotlib pytest
