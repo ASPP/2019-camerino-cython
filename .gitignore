@@ -1,0 +1,5 @@
+build
+dist
+fancy_means.egg-info
+*.swp
+*.swo
