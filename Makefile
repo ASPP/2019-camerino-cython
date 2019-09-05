@@ -15,8 +15,5 @@ test: test-code
 test-code: in
 	pytest -v fancy_means
 
-cython:
-	python setup.py build_src
-
 
 clean:
