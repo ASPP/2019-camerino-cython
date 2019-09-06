@@ -26,7 +26,7 @@ setup(
                       'pytest >= 3.0.0'],
     cmdclass = {'build_ext': build_ext},
     ext_modules = [
-    Extension("fast_mean", ["fast_mean.pyx"],
+    Extension("fancy_means.fast_means", ["fancy_means/fast_means.pyx"],
               include_dirs=[np.get_include()],
               extra_compile_args=['-fopenmp'],
               extra_link_args=['-fopenmp', '-lgomp']),
