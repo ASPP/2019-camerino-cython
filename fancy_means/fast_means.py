@@ -1,4 +1,3 @@
-%%cython
 import cython
 cimport numpy as np
 import numpy as np
