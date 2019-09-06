@@ -24,4 +24,11 @@ setup(
     install_requires=['numpy >= 1.14.0',
                       'matplotlib >= 3.0.0',
                       'pytest >= 3.0.0'],
+    cmdclass = {'build_ext': build_ext},
+    ext_modules = [
+    Extension("fast_mean", ["fast_mean.pyx"],
+              include_dirs=[np.get_include()],
+              extra_compile_args=['-fopenmp'],
+              extra_link_args=['-fopenmp', '-lgomp']),
+  ]
 )
