@@ -7,6 +7,13 @@ https://github.com/pypa/sampleproject/blob/master/setup.py
 from setuptools import setup, find_packages
 
 
+from distutils.core import setup
+from distutils.extension import Extension
+from Cython.Distutils import build_ext
+
+import numpy as np
+
+
 with open('README', 'r') as fh: 
     long_description = fh.read()
 
@@ -24,4 +31,10 @@ setup(
     install_requires=['numpy >= 1.14.0',
                       'matplotlib >= 3.0.0',
                       'pytest >= 3.0.0'],
+                      cmdclass = {'build_ext': build_ext},
+    ext_modules = [
+        Extension("fancy_means.fast_means", ["fancy_means/fast_means.pyx"],
+              include_dirs=[np.get_include()],
+              extra_compile_args=['-fopenmp'],
+              extra_link_args=['-fopenmp', '-lgomp']),]
 )
